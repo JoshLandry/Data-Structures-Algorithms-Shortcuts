@@ -269,6 +269,8 @@ function reverseArrayUsingStack(array) {
 var current = head;
 while (current && current.next)
 
+  // ?
+
 //return a copy of an array with its duplicates removed
 
 uniqueArray = a.filter(function(item, pos) {
