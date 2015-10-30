@@ -72,7 +72,7 @@ Graph.prototype.eachDepth = function (node, anotherNode, f) {
   }
 }
 
-//Graph - hasCycle
+// Graph - hasCycle
 Graph.prototype.hasCycle = function(nodeIndex) {
   var next = [].concat(this.structure[nodeIndex].neighbors);
   var seen = {};

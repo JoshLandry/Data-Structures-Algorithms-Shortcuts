@@ -66,12 +66,36 @@ console.log("1 || 2 = "+(1 || 2)); // 1 // 1 is truthy so it never reaches y ter
 console.log("0 && 1 = "+(0 && 1)); // 0 // 0 is falsy so short circuits at x term
 console.log("1 && 2 = "+(1 && 2)); // 2 // both values are true so y term is returned
 
-// Check if something is an object, while allowing for the fact that 'null' can be an object in JS.
+// Check if something is an object, while allowing for the fact that 'null' will appear as an object with 'typeof'.
+
+// However, it's not an object, it's a primitive, because you can't add properties to it.
 
 var bar = {};
 console.log((bar !== null) && (typeof bar === "object"))
 
 // NaN (not a number) is actually a number data type.
+
+// The only way to check is something is NaN is by doing this -
+
+value ==! value;
+
+// which would only return true if it was NaN, because NaN is unequal to itself.
+
+
+// special case about == (double equal) is that it will do some implicit coercion.
+
+if([]){console.log('its true')} // is true,
+[]==true // is not, tho
+
+// Comparing Objects -
+
+var a = {a: 1};
+var b = {a: 1};
+a == b //false
+a === b //false
+
+// This comes out false because if the contents of objects 'a' and 'b' are the same, they are not actually the same object.
+
 
 // Find out if a number is an integer
 
@@ -89,6 +113,8 @@ var isInteger = function(x) {
     console.log('uh, not even a number');
   }
 }
+
+// Will this work?  All number values are floating point in JS.
 
 // Alt -
 
@@ -295,6 +321,18 @@ var shifter = function(array) {
   return array[0];
 };
 
+// Implement unshift without helper methods - ADDS item to start of array
+
+var unshifter = function(array, item) {
+  for(var i = array.length - 1; i > -1; i--) { // mel's solution was wrong
+    array[i+1] = array[i]
+  }
+  array[0] = item;
+  return array;
+};
+
+// remember 'push' and 'pop' are working with the end of the array
+
 // Implement pop without helper methods - 
 var inputArray = [1,2,3,4,5,6];
 
@@ -304,16 +342,6 @@ var popper = function(array) {
     inputArray.push(array[i]);
   }
   return array[array.length - 1]
-};
-
-// Implement unshift without helper methods - 
-
-var unshifter = function(array, item) {
-  for(var i = array.length - 1; i > -1; i--) { // mel's solution was wrong
-    array[i+1] = array[i]
-  }
-  array[0] = item;
-  return array;
 };
 
 // Function to check whether an object is inheriting a given property - 
@@ -329,3 +357,42 @@ var willInherit = function(object, property) {
 var willInherit = function(object, property) {
   return !!(object[property] && !object.hasOwnProperty(property));
 } 
+
+
+
+
+// NEW SHIT 2015.10.29
+
+// adds a method to existing date prototype which will tell you what date tomorrow is - 
+
+Date.prototype.nextDay = function(){
+  var currentDate = this.getDate();
+  return new Date(this.setDate(currentDate +1));
+}
+
+var date = new Date(); 
+date; //Fri May 16 2014 20:47:14 GMT-0500 (Central Daylight Time)
+date.nextDay();//Sat May 17 2014 20:47:14 GMT-0500 (Central Daylight Time)
+
+// A clever miniature JS bank account - 
+
+var monica = {
+  name: 'Monica Geller',
+  total: 400,
+  deductMontlyFee: function(fee){
+     this.total = this.total - fee;
+     return this.name + ' remaining balance is '+ this.total; 
+  }
+}
+
+// If you try to check the max value of an array like this, it won't work - 
+
+Question: What is the value of Math.max([2,3,4,5]);
+
+Answer: NaN
+
+// You have to use 'apply':
+
+function getMax(arr){
+  return Math.max.apply(null, arr);  
+}
