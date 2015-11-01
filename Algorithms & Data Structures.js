@@ -396,3 +396,60 @@ Answer: NaN
 function getMax(arr){
   return Math.max.apply(null, arr);  
 }
+
+
+// 'log' a message with an argument inserted before the message - 
+
+function log(){
+  var args = Array.prototype.slice.call(arguments);
+  args.unshift('(app)');
+  console.log.apply(console, args);
+}
+
+log('my message'); //(app) my message
+log('my message', 'your message'); //(app) my message your message 
+
+
+// a function to repeat a string a specified number of times -
+
+String.prototype.repeatify = String.prototype.repeatify || function(times) {
+   var str = '';
+
+   for (var i = 0; i < times; i++) {
+      str += this;
+   }
+
+   return str;
+};
+
+// Hoisting -
+
+// because of hoisting, this becomes - 
+
+function test() {
+   console.log(a);
+   console.log(foo());
+   
+   var a = 1;
+   function foo() {
+      return 2;
+   }
+}
+
+test();
+
+// this instead.
+
+function test() {
+   var a;
+   function foo() {
+      return 2;
+   }
+
+   console.log(a);
+   console.log(foo());
+   
+   a = 1;
+}
+
+test();
