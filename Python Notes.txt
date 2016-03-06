@@ -1,0 +1,13 @@
+whitespace / indentation are important in Python - 4 spaces
+
+Methods that use dot notation only work with strings.
+
+When we pass a list to a function and modify that list, like in the double_first function above, we end up modifying the original list.
+
+'Not' is evaluated before 'and' and 'or'
+
+While True: is a ridiculous way to do a 'Do while'
+
+Else conditions on while and for loops only execute if the loop 'ends normally', as in there is no 'break' statement.
+
+if you don't capitalize 'true' and 'false' it won't know wtf you mean

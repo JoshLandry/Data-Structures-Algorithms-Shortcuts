@@ -1,0 +1,5 @@
+mongod --dbpath=./db --smallfiles
+
+superagent localhost:3000/api/v1/goats
+
+open -n /Applications/VLC.app/Contents/MacOS/VLC

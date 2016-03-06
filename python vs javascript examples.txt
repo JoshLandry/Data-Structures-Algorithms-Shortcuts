@@ -1,0 +1,20 @@
+Python - 
+
+def add_function(numberlist):
+    for number in numberlist:
+        number += 2
+    return numberlist
+
+numberlist = [2,3,4,5]
+
+----------
+JavaScript -
+
+var add_function = function(numberArray) {
+    for (var i = 0; i < numberarray.length; i++) {
+        numberArray[i] += 2
+    }
+    return numberArray
+}
+
+var numberArray = [2,3,4,5]

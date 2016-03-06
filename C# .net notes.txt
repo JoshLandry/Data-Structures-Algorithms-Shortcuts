@@ -1,0 +1,33 @@
+- enums
+
+- value/ref types
+
+- string is ref type that behaves like value type
+
+- strings are immutable which is why string.trim() does not overwrite the original
+you've gotta do string = string.trim(), its returning a new string
+
+- array is ref type, arrays have fixed size
+
+- 'solutions' house multiple projects
+
+- assemblies are what the compiler makes
+
+- in addition to public/private, also internal (within project)
+
+- method overloading - 2 methods can has the same name if they take args of different types
+
+- return type NOT part of 'method signature'
+
+- constructors can also be overloaded
+
+- a constructor can call another constructor from its class like
+: this("parameter")
+
+- properties have 'get' and 'set' accessors
+
+- field vs property?
+
+- auto implemented prop has get; set;
+
+- 'subscribers' listen to events

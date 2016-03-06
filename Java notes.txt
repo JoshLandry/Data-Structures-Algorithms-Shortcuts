@@ -1,0 +1,7 @@
+in Java, whitespace is ignored.
+
+there are semicolons at the end of lines
+
+all variables must be typed
+
+ternary expressions are the same as JS.

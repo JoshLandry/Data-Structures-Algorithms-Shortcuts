@@ -1,0 +1,9 @@
+questions - 
+
+public 'virtual' vs. public class?
+
+'abstract classes are more closely associated to their clients than to the classes that implement them'
+
+'concrete' class?
+
+no method should override an implenmented mtehod of any of its base classes
