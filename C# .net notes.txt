@@ -1,4 +1,4 @@
-- enums
+- enums?
 
 - value/ref types
 
@@ -11,7 +11,7 @@ you've gotta do string = string.trim(), its returning a new string
 
 - 'solutions' house multiple projects
 
-- assemblies are what the compiler makes
+- assemblies (exes or dlls) are what the compiler makes
 
 - in addition to public/private, also internal (within project)
 
@@ -24,10 +24,12 @@ you've gotta do string = string.trim(), its returning a new string
 - a constructor can call another constructor from its class like
 : this("parameter")
 
-- properties have 'get' and 'set' accessors
-
-- field vs property?
+- field vs property? properties have 'get' and 'set' accessors
 
 - auto implemented prop has get; set;
 
 - 'subscribers' listen to events
+
+- delegates vs events?  events prevent subscribers from conflicting
+
+- events have two parameters (object sender, {event args})
